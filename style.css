@@ -1,0 +1,7 @@
+html, body { margin: 0; height: 100%; }
+.page {
+  max-width: calc(100vh * 4 / 3);
+  margin-inline: auto;
+  display: grid;
+  place-items: center;
+}
