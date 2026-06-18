@@ -1,19 +1,434 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
-<link rel="stylesheet" href="style.css">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BitBounty</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT-Apu Helsinki – Tietokonehuolto ja IT-tuki | Oulunkylä &amp; Vuosaari</title>
+  <meta name="description" content="Nopeaa ja luotettavaa IT-tukea Helsingissä. Tietokoneiden huolto, korjaus, virusten poisto ja asennukset koteihin ja yrityksille. Painopisteenä Oulunkylä ja Vuosaari.">
 
-</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="page">
-    <h1>BitBounty</h1>
-    <p>BitBounty is a platform for finding and completing tasks for rewards.</p>
-    <p>Here's some bounties just posted:</p>
-  </div>
+
+  <!-- ============================== HEADER ============================== -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#koti" class="brand" aria-label="IT-Apu Helsinki – etusivulle">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </span>
+        <span class="brand-text">IT-Apu <span>Helsinki</span></span>
+      </a>
+
+      <!-- Pure-CSS mobile menu toggle -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Avaa tai sulje valikko">
+      <label for="nav-toggle" class="hamburger" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="nav-menu" aria-label="Päävalikko">
+        <ul>
+          <li><a href="#palvelut">Palvelut</a></li>
+          <li><a href="#hinnasto">Hinnasto</a></li>
+          <li><a href="#alueet">Alueet</a></li>
+          <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+        </ul>
+      </nav>
+
+      <!-- PLACEHOLDER: vaihda oikeaan puhelinnumeroon (myös tel:-linkki) -->
+      <a href="tel:+358401234567" class="btn btn-primary nav-cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        Soita
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- =============================== HERO =============================== -->
+    <section id="koti" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">Tietokonehuolto &amp; IT-tuki Helsingissä</span>
+          <h1>Nopeaa ja mutkatonta IT-apua – kotiin ja yritykseen</h1>
+          <p class="lead">Hidas kone, kadonneet tiedostot vai uuden laitteen käyttöönotto? Autamme selkeällä hinnoittelulla ja ilman teknistä jargonia. Palvelemme koko Helsingissä, painopisteenä Oulunkylä ja Vuosaari.</p>
+          <div class="hero-actions">
+            <!-- PLACEHOLDER: puhelinnumero -->
+            <a href="tel:+358401234567" class="btn btn-primary btn-lg">Soita 040&nbsp;123&nbsp;4567</a>
+            <a href="#hinnasto" class="btn btn-ghost btn-lg">Katso hinnasto</a>
+          </div>
+          <ul class="hero-badges">
+            <li>Kotikäynnit</li>
+            <li>Etätuki</li>
+            <li>Koteihin ja yrityksille</li>
+          </ul>
+        </div>
+
+        <aside class="hero-card" aria-label="Hinnoittelu lyhyesti">
+          <p class="hero-card-title">Hinnoittelu pähkinänkuoressa</p>
+          <ul class="price-quick">
+            <li><span>Aloitettu puolituntinen</span><strong>32&nbsp;€</strong></li>
+            <li><span>Työtunti</span><strong>64&nbsp;€</strong></li>
+            <li><span>Käyntimaksu</span><strong>32&nbsp;€</strong></li>
+          </ul>
+          <p class="hero-card-note">Hinnat sis. alv. 25,5 %. Etätuessa ei käyntimaksua.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============================= PALVELUT ============================= -->
+    <section id="palvelut" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Palvelut</span>
+          <h2>Apua arjen ja työn tietotekniikkaan</h2>
+          <p class="section-lead">Niin kannettavat, pöytäkoneet kuin oheislaitteetkin – korjaamme, asennamme ja neuvomme selkokielellä.</p>
+        </div>
+
+        <div class="grid services">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <h3>Huolto ja korjaus</h3>
+            <p>Hidastunut, ylikuumeneva tai rikkoutunut kone takaisin kuntoon – puhdistus, päivitykset ja varaosat sekä kannettaviin että pöytäkoneisiin.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+            <h3>Virusten ja haittaohjelmien poisto</h3>
+            <p>Poistamme virukset ja kiusalliset mainosohjelmat sekä suojaamme laitteesi jatkoa varten.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <h3>Käyttöjärjestelmän asennus</h3>
+            <p>Windowsin tai macOS:n puhdas asennus, päivitys ja ohjelmien käyttöönotto – kone valmiina käyttöösi.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                <line x1="12" y1="20" x2="12.01" y2="20"/>
+              </svg>
+            </div>
+            <h3>Verkot ja WiFi</h3>
+            <p>Reitittimet, katvealueet ja kotiverkko toimimaan – myös tulostimet, striimaus ja älylaitteet.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+              </svg>
+            </div>
+            <h3>Varmuuskopiointi ja palautus</h3>
+            <p>Tärkeät tiedostot turvaan ja kadonneet kuvat tai dokumentit talteen – ennen kuin on liian myöhäistä.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="4"/>
+                <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/>
+                <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/>
+                <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/>
+                <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/>
+              </svg>
+            </div>
+            <h3>Etätuki ja neuvonta</h3>
+            <p>Pikainen apu etäyhteydellä – moni pulma ratkeaa heti ilman käyntiä ja ilman käyntimaksua.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= HINNASTO ============================= -->
+    <section id="hinnasto" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Hinnasto</span>
+          <h2>Selkeä hinnoittelu, ei yllätyksiä</h2>
+          <p class="section-lead">Veloitamme vain käytetystä ajasta, aloitetun puolituntisen tarkkuudella.</p>
+        </div>
+
+        <div class="grid pricing">
+          <div class="price-card">
+            <h3>Aloitettu puolituntinen</h3>
+            <div class="price-amount">32&nbsp;€</div>
+            <p>Pienetkin työt veloitetaan puolen tunnin tarkkuudella – maksat vain käytetystä ajasta.</p>
+          </div>
+
+          <div class="price-card featured">
+            <span class="price-badge">Yleisin</span>
+            <h3>Työtunti</h3>
+            <div class="price-amount">64&nbsp;€<span class="unit"> / tunti</span></div>
+            <p>Pidemmissä töissä kätevä tuntiveloitus. Saat aina arvion työn kestosta etukäteen.</p>
+          </div>
+
+          <div class="price-card">
+            <h3>Käyntimaksu</h3>
+            <div class="price-amount">32&nbsp;€</div>
+            <p>Siirtyminen luoksesi kotikäynneillä ja yrityksissä. Etätuessa käyntimaksua ei peritä.</p>
+          </div>
+        </div>
+
+        <p class="price-note">Kaikki hinnat sisältävät arvonlisäveron (alv. 25,5 %). Kerromme aina arvion kokonaishinnasta ennen työn aloittamista.</p>
+      </div>
+    </section>
+
+    <!-- ============================= MIKSI ME ============================= -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Miksi me</span>
+          <h2>Paikallista apua, johon voit luottaa</h2>
+        </div>
+
+        <div class="grid features">
+          <div class="feature">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <h3>Lähellä sinua</h3>
+            <p>Toimimme naapurustossa, joten ehdimme paikalle nopeasti.</p>
+          </div>
+
+          <div class="feature">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                <line x1="7" y1="7" x2="7.01" y2="7"/>
+              </svg>
+            </div>
+            <h3>Selkeä hinnoittelu</h3>
+            <p>Tiedät hinnan etukäteen – ei piilokuluja eikä yllätyslaskuja.</p>
+          </div>
+
+          <div class="feature">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3>Koti ja yritys</h3>
+            <p>Autamme yhtä lailla kotikäyttäjiä kuin pienyrityksiä.</p>
+          </div>
+
+          <div class="feature">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <h3>Etätuki säästää</h3>
+            <p>Kiireelliset pulmat ratkaistaan usein heti etäyhteydellä.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== ALUEET ============================== -->
+    <section id="alueet" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Toiminta-alue</span>
+          <h2>Palvelemme koko Helsingissä</h2>
+          <p class="section-lead">Painopisteenä Oulunkylä ja Vuosaari lähiympäristöineen – kotikäynnit nopeasti ja vaivattomasti.</p>
+        </div>
+
+        <div class="grid areas">
+          <article class="area-card">
+            <div class="area-card-head">
+              <div class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <h3>Oulunkylä ja Koillis-Helsinki</h3>
+            </div>
+            <ul class="chips">
+              <li>Oulunkylä</li><li>Patola</li><li>Veräjämäki</li><li>Käpylä</li>
+              <li>Pukinmäki</li><li>Malmi</li><li>Tapanila</li><li>Pihlajamäki</li>
+            </ul>
+          </article>
+
+          <article class="area-card">
+            <div class="area-card-head">
+              <div class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <h3>Vuosaari ja Itä-Helsinki</h3>
+            </div>
+            <ul class="chips">
+              <li>Vuosaari</li><li>Rastila</li><li>Kallahti</li><li>Herttoniemi</li>
+              <li>Roihuvuori</li><li>Myllypuro</li><li>Kontula</li><li>Itäkeskus</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="areas-note">Palvelemme myös muuta pääkaupunkiseutua – muut alueet ja lähikunnat sopimuksen mukaan.</p>
+      </div>
+    </section>
+
+    <!-- =========================== YHTEYSTIEDOT =========================== -->
+    <section id="yhteystiedot" class="section contact">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Yhteystiedot</span>
+          <h2>Ota yhteyttä – autamme mielellämme</h2>
+          <p class="section-lead">Soita tai laita viestiä, niin sovitaan sopiva aika. Kerromme kustannusarvion jo puhelimessa.</p>
+        </div>
+
+        <div class="grid contact-grid">
+          <div class="contact-card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <h3>Puhelin</h3>
+            <!-- PLACEHOLDER: puhelinnumero -->
+            <a class="big" href="tel:+358401234567">040 123 4567</a>
+            <small>Soita arkisin klo 9–18</small>
+          </div>
+
+          <div class="contact-card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <h3>Sähköposti</h3>
+            <!-- PLACEHOLDER: sähköpostiosoite -->
+            <a class="big" href="mailto:info@it-apu.fi">info@it-apu.fi</a>
+            <small>Vastaamme yleensä saman päivän aikana</small>
+          </div>
+
+          <div class="contact-card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3>Palveluajat</h3>
+            <span class="big">Ma–Pe 9–18</span>
+            <small>La 10–15 sopimuksen mukaan</small>
+          </div>
+
+          <div class="contact-card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <h3>Toiminta-alue</h3>
+            <span class="big">Helsinki</span>
+            <small>Oulunkylä, Vuosaari ja lähialueet</small>
+          </div>
+        </div>
+
+        <div class="contact-actions">
+          <!-- PLACEHOLDER: puhelinnumero -->
+          <a href="tel:+358401234567" class="btn btn-primary btn-lg">Soita 040&nbsp;123&nbsp;4567</a>
+          <!-- PLACEHOLDER: sähköpostiosoite -->
+          <a href="mailto:info@it-apu.fi" class="btn btn-ghost btn-lg">Lähetä sähköpostia</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#koti" class="brand" aria-label="IT-Apu Helsinki">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </span>
+            <span class="brand-text">IT-Apu <span>Helsinki</span></span>
+          </a>
+          <p>Tietokonehuoltoa ja IT-tukea koteihin ja pienyrityksille – selkeästi ja mutkattomasti.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Palvelut</h4>
+          <ul>
+            <li><a href="#palvelut">Huolto ja korjaus</a></li>
+            <li><a href="#palvelut">Virusten poisto</a></li>
+            <li><a href="#palvelut">Verkot ja WiFi</a></li>
+            <li><a href="#palvelut">Etätuki</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Alueet</h4>
+          <ul>
+            <li><a href="#alueet">Oulunkylä</a></li>
+            <li><a href="#alueet">Vuosaari</a></li>
+            <li><a href="#alueet">Koko Helsinki</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Yhteystiedot</h4>
+          <ul>
+            <!-- PLACEHOLDER: puhelin & sähköposti -->
+            <li><a href="tel:+358401234567">040 123 4567</a></li>
+            <li><a href="mailto:info@it-apu.fi">info@it-apu.fi</a></li>
+            <li>Ma–Pe 9–18</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <!-- PLACEHOLDER: Y-tunnus -->
+        <span>© 2026 IT-Apu Helsinki · Y-tunnus 1234567-8</span>
+        <span>Hinnat sis. alv. 25,5 %</span>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
