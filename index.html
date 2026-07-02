@@ -1,452 +1,256 @@
 <!DOCTYPE html>
-<html lang="fi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Digituki Oy – Apua digiasioihin Helsingissä ja PK-seudulla</title>
-  <meta name="description" content="Nopeaa ja luotettavaa IT-tukea Helsingissä. Tietokoneiden huolto, korjaus, virusten poisto ja asennukset koteihin ja yrityksille. Painopisteenä Oulunkylä ja Vuosaari.">
+  <title>SatsCode — software bounties, paid in bitcoin</title>
+  <meta name="description" content="SatsCode connects projects that need software built with the developers who build it, and settles every bounty instantly and self-custodially in bitcoin over the Ark protocol.">
+  <meta name="theme-color" content="#0A0A0A">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta property="og:title" content="SatsCode — software bounties, paid in bitcoin">
+  <meta property="og:description" content="Bounties funded in bitcoin, settled the moment work is approved — instant, self-custodial payouts over the Ark protocol.">
+  <meta property="og:type" content="website">
+  <!-- OPEN ITEM: confirm production domain (satscode.xyz assumed) and add a real og:image card -->
+  <meta property="og:url" content="https://satscode.xyz">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0A'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23F7931A'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
+
+  <!--
+    DRAFT — open items to confirm before this page goes live:
+
+    1. Wordmark is text-only for now; swap in the real logo asset when one exists.
+    2. FAQ "Is SatsCode open source?": the code is GPL-3.0 licensed locally, but
+       github.com/bitcoinbounty/satcode is not public today (404). Publish the repo
+       or reword that answer — it's visibly tagged as an open item on the page.
+    3. FAQ custody + dispute answers are drafted from docs/triage-escrow.md in the
+       satcode repo, which is an implementation *plan* — confirm the copy matches
+       what is actually live before launch.
+    4. Example bounty cards are placeholders (badged "Example") — replace, wire to
+       live app data, or sign off on shipping them as-is.
+    5. funding@satscode.xyz is assumed — confirm the address exists.
+    6. Footer GitHub/docs and social links are commented out pending real URLs.
+    7. "For funders" bullets follow the roadmap in docs/triage-escrow.md — adjust as
+       priorities change, and decide whether to name specific orgs (text only, no logos).
+  -->
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ============================== HEADER ============================== -->
   <header class="site-header">
-    <div class="container nav">
-      <a href="#koti" class="brand" aria-label="IT-Apu Helsinki – etusivulle">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-          </svg>
-        </span>
-        <span class="brand-text">Digituki <span>Oy</span></span>
-      </a>
-
-      <!-- Pure-CSS mobile menu toggle -->
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Avaa tai sulje valikko">
-      <label for="nav-toggle" class="hamburger" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </label>
-
-      <nav class="nav-menu" aria-label="Päävalikko">
-        <ul>
-          <li><a href="#palvelut">Palvelut</a></li>
-          <li><a href="#hinnasto">Hinnasto</a></li>
-          <li><a href="#alueet">Alueet</a></li>
-          <li><a href="#yhteystiedot">Yhteystiedot</a></li>
-        </ul>
+    <div class="header-inner">
+      <a class="wordmark" href="#top">satscode<span aria-hidden="true">.</span></a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#how-it-works">How it works</a>
+        <a href="#why-ark">Why Ark</a>
+        <a href="#for-funders">For funders</a>
+        <a class="btn btn-sm" href="https://app.satscode.xyz">Launch app <span aria-hidden="true">↗</span></a>
       </nav>
-
-      <!-- PLACEHOLDER: vaihda oikeaan puhelinnumeroon (myös tel:-linkki) -->
-      <a href="tel:+358401234567" class="btn btn-primary nav-cta">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/>
-        </svg>
-        Soita
-      </a>
     </div>
   </header>
 
-  <main>
-    <!-- =============================== HERO =============================== -->
-    <section id="koti" class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <span class="eyebrow">Digitukea kotiin &amp; IT-tukea yrityksille</span>
-          <h1>Rauhallista ja mutkatonta digitukea – kotona tai etänä</h1>
-          <p class="lead">Hidastunut kone, kadonneet tiedostot vai uuden laitteen käyttöönotto? Ratkaistaan pulmat yhdessä – ilman teknistä jargonia. Palvelemme Helsingissä ja PK-seudulla.</p>
-          <div class="hero-actions">
-            <!-- PLACEHOLDER: puhelinnumero -->
-            <a href="tel:+358401234567" class="btn btn-primary btn-lg">Soita 040&nbsp;123&nbsp;4567</a>
-            <a href="#hinnasto" class="btn btn-ghost btn-lg">Katso hinnasto</a>
-          </div>
-          <ul class="hero-badges">
-            <li>Kotikäynnit</li>
-            <li>Etäkäynnit</li>
-            <li>Vertaistukiryhmä</li>
-            <li>Koteihin ja yrityksille</li>
-          </ul>
-        </div>
+  <main id="main">
 
-        <aside class="hero-card" aria-label="Hinnoittelu lyhyesti">
-          <p class="hero-card-title">Hinnoittelu pähkinänkuoressa</p>
-          <ul class="price-quick">
-            <li><span>Kotikäynti 1,5h</span><strong>120&nbsp;€</strong></li>
-            <li><span>Etätuki 30 min</span><strong>50&nbsp;€</strong></li>
-            <li><span>Jatkuva digituki</span>neuvotellaan erikseen</li>
-          </ul>
-          <p class="hero-card-note">Hinnat sis. alv. 25,5 %.</p>
-        </aside>
-      </div>
-    </section>
-
-    <!-- ============================= PALVELUT ============================= -->
-    <section id="palvelut" class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Palvelut</span>
-          <h2>Apua arjen ja työn tietotekniikkaan</h2>
-          <p class="section-lead">Niin kannettavat, pöytäkoneet kuin oheislaitteetkin – korjaamme, asennamme ja neuvomme selkokielellä.</p>
-        </div>
-
-        <div class="grid services">
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-              </svg>
-            </div>
-            <h3>Huolto ja korjaus</h3>
-            <p>Hidastunut, ylikuumeneva tai rikkoutunut kone takaisin kuntoon – puhdistus, päivitykset ja varaosat sekä kannettaviin että pöytäkoneisiin.</p>
-          </article>
-
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                <path d="M9 12l2 2 4-4"/>
-              </svg>
-            </div>
-            <h3>Virusten ja haittaohjelmien poisto</h3>
-            <p>Poistamme virukset ja kiusalliset mainosohjelmat sekä suojaamme laitteesi jatkoa varten.</p>
-          </article>
-
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2"/>
-                <line x1="8" y1="21" x2="16" y2="21"/>
-                <line x1="12" y1="17" x2="12" y2="21"/>
-              </svg>
-            </div>
-            <h3>Käyttöjärjestelmän asennus</h3>
-            <p>Windowsin tai macOS:n puhdas asennus, päivitys ja ohjelmien käyttöönotto – kone valmiina käyttöösi.</p>
-          </article>
-
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
-                <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
-                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
-                <line x1="12" y1="20" x2="12.01" y2="20"/>
-              </svg>
-            </div>
-            <h3>Verkot ja WiFi</h3>
-            <p>Reitittimet, katvealueet ja kotiverkko toimimaan – myös tulostimet, striimaus ja älylaitteet.</p>
-          </article>
-
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <ellipse cx="12" cy="5" rx="9" ry="3"/>
-                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-              </svg>
-            </div>
-            <h3>Varmuuskopiointi ja palautus</h3>
-            <p>Tärkeät tiedostot turvaan ja kadonneet kuvat tai dokumentit talteen – ennen kuin on liian myöhäistä.</p>
-          </article>
-
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <circle cx="12" cy="12" r="4"/>
-                <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/>
-                <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/>
-                <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/>
-                <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/>
-              </svg>
-            </div>
-            <h3>Etätuki ja neuvonta</h3>
-            <p>Nopeaa apua etäyhteydellä ilman käyntimaksua. Etätuki on käytettävissä, kun olet aiemmin ollut lähikäyntiasiakkaamme.</p>
-          </article>
+    <!-- Hero: full-bleed backdrop, content constrained to a ~4:3 framed column on desktop -->
+    <section class="hero" id="top">
+      <div class="hero-frame">
+        <p class="kicker">Bitcoin-native bounty infrastructure</p>
+        <h1>Software bounties, paid in bitcoin — the moment work is approved.</h1>
+        <p class="lede">SatsCode connects projects that need software built with the developers who build it, and settles every reward instantly and self-custodially over the Ark protocol. No invoices, no bank rails, no channel to open just to get paid.</p>
+        <div class="cta-row">
+          <a class="btn" href="#how-it-works">See how it works</a>
+          <a class="link-arrow" href="https://app.satscode.xyz">Explore the live app <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
 
-    <!-- ============================= HINNASTO ============================= -->
-    <section id="hinnasto" class="section section-alt">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Hinnasto</span>
-          <h2>Selkeä hinnoittelu, ei yllätyksiä</h2>
-          <p class="section-lead">Laskutus tapahtuu aloitetun puolituntisen tarkkuudella.</p>
-        </div>
-
-        <div class="grid pricing">
-          <div class="price-card">
-            <h3>Aloitettu puolituntinen</h3>
-            <div class="price-amount">50&nbsp;€</div>
-            <p>Pienetkin työt veloitetaan aloitetun puolen tunnin tarkkuudella.</p>
-          </div>
-
-          <div class="price-card featured">
-            <span class="price-badge">Yleisin</span>
-            <h3>Kotikäynti</h3>
-            <div class="price-amount">120&nbsp;€<span class="unit"> / 1,5h</span></div>
-            <p>Pidemmissä töissä kätevä tuntiveloitus. Saat aina arvion työn kestosta etukäteen.</p>
-          </div>
-
-          <div class="price-card">
-            <h3>Jatkuva digituki</h3>
-            <div>Hinta neuvotellaan tarpeen mukaan</div>
-            <p>Kun tarvitset satunnaista jatkuvaa digitukea.</p>
-          </div>
-        </div>
-
-        <p class="price-note">Kaikki hinnat sisältävät arvonlisäveron (alv. 25,5 %). Kerromme aina arvion kokonaishinnasta ennen työn aloittamista.</p>
-      </div>
-    </section>
-
-    <!-- ============================= MIKSI ME ============================= -->
     <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Miksi me</span>
-          <h2>Paikallista apua, johon voit luottaa</h2>
-        </div>
+      <div class="container prose">
+        <h2>Open-source Bitcoin software still runs on volunteer time</h2>
+        <p>Most of the software the Bitcoin ecosystem depends on is maintained by a small pool of contributors, funded inconsistently, and paid through rails that don't fit a global, permissionless contributor base — bank transfers, PayPal, the occasional grant.</p>
+        <p><span class="em">Bounties solve the incentive problem. Bitcoin solves the currency problem.</span> Ark solves the part that's made Bitcoin bounties clunky until now — getting paid used to mean managing a Lightning channel or waiting on liquidity. <span class="em">It doesn't anymore.</span></p>
+      </div>
+    </section>
 
-        <div class="grid features">
-          <div class="feature">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
+    <section class="section" id="how-it-works">
+      <div class="container-wide">
+        <h2>How it works</h2>
+        <ol class="steps">
+          <li class="step">
+            <div class="step-top">
+              <span class="step-num">01</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 9v6M9 12h6"/></svg>
             </div>
-            <h3>Paikallista tukea</h3>
-            <p>Tuet paikallisia nuoria samalla kuin he tukevat sinua. Voit lisäksi liittyä vertaistukiryhmään.</p>
-          </div>
-
-          <div class="feature">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
-                <line x1="7" y1="7" x2="7.01" y2="7"/>
-              </svg>
+            <h3>Post</h3>
+            <p>A project describes the work and funds the bounty in bitcoin.</p>
+          </li>
+          <li class="step">
+            <div class="step-top">
+              <span class="step-num">02</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 8-4 4 4 4"/><path d="m15 8 4 4-4 4"/></svg>
             </div>
-            <h3>Selkeä hinnoittelu</h3>
-            <p>Tiedät hinnan etukäteen – ei piilokuluja eikä yllätyslaskuja.</p>
-          </div>
-
-          <div class="feature">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-              </svg>
+            <h3>Claim &amp; build</h3>
+            <p>A developer claims the bounty and submits their work.</p>
+          </li>
+          <li class="step">
+            <div class="step-top">
+              <span class="step-num">03</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>
             </div>
-            <h3>Koti ja yritys</h3>
-            <p>Autamme sekä kotikäyttäjiä että pienyrityksiä.</p>
-          </div>
-        </div>
+            <h3>Approve</h3>
+            <p>The project reviews the submission and approves it.</p>
+          </li>
+          <li class="step">
+            <div class="step-top">
+              <span class="step-num">04</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v9"/><path d="m8.5 9.5 3.5 3.5 3.5-3.5"/><path d="M5 16v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2"/></svg>
+            </div>
+            <h3>Get paid</h3>
+            <p>Bitcoin settles instantly to the contributor's self-custodial Ark wallet.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
 
-        <div class="perk">
-          <div class="perk-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-            </svg>
-          </div>
-          <div class="perk-body">
-            <h3>Asiakkaiden vertaistukiryhmä</h3>
-            <p>Asiakkaanamme pääset mukaan vertaistukiryhmään WhatsAppissa tai Signalissa – kysy pieniä pulmia ja jaa vinkkejä muiden käyttäjien kanssa.</p>
-          </div>
+    <!-- Framed ~4:3 panel on a full-bleed backdrop (desktop) -->
+    <section class="section" id="why-ark">
+      <div class="panel prose">
+        <h2>Why Ark</h2>
+        <p>Ark is a Bitcoin layer-2 protocol that settles payments through virtual UTXOs (VTXOs) shared with an Ark server, instead of individual payment channels. A developer claiming their first bounty doesn't need inbound liquidity, a funded channel, or any Lightning setup first — they just receive.</p>
+        <p>Funds stay self-custodial throughout, with a guaranteed path to reclaim them on-chain if the server ever goes offline. Ark also interoperates with Lightning, so a payout can move further into the wider Bitcoin payments ecosystem from there.</p>
+        <ul class="props">
+          <li>No inbound liquidity required</li>
+          <li>Self-custodial throughout</li>
+          <li>Guaranteed on-chain exit</li>
+          <li>Interoperates with Lightning</li>
+        </ul>
+        <p class="panel-note">Lightning-only bounty tools ask the recipient to show up with inbound liquidity or fall back to a hosted wallet. Ark removes that first-payout friction.</p>
+      </div>
+    </section>
+
+    <section class="section" id="bounties">
+      <div class="container-wide">
+        <h2>What a bounty looks like</h2>
+        <p class="section-sub">Illustrative examples, not live listings — the real board is on the app.</p>
+        <!-- EXAMPLE DATA — placeholders from the brief. Replace, wire to live app data,
+             or get explicit sign-off to launch with these clearly-labeled examples. -->
+        <ul class="bounty-grid">
+          <li class="bounty-card">
+            <span class="badge">Example</span>
+            <h3>Fix reconnection bug in a self-custodial mobile wallet</h3>
+            <div class="bounty-meta">
+              <span class="sats">250,000 sats</span>
+              <span class="chip">Rust</span>
+            </div>
+          </li>
+          <li class="bounty-card">
+            <span class="badge">Example</span>
+            <h3>Build a VTXO explorer UI for an Ark server</h3>
+            <div class="bounty-meta">
+              <span class="sats">400,000 sats</span>
+              <span class="chip">React/TypeScript</span>
+            </div>
+          </li>
+          <li class="bounty-card">
+            <span class="badge">Example</span>
+            <h3>Add multilingual support to a bounty-tracking CLI</h3>
+            <div class="bounty-meta">
+              <span class="sats">120,000 sats</span>
+              <span class="chip">Go</span>
+            </div>
+          </li>
+          <li class="bounty-card">
+            <span class="badge">Example</span>
+            <h3>Write integration tests for a Cashu mint</h3>
+            <div class="bounty-meta">
+              <span class="sats">90,000 sats</span>
+              <span class="chip">Python</span>
+            </div>
+          </li>
+        </ul>
+        <p class="bounty-cta"><a class="link-arrow" href="https://app.satscode.xyz">Browse live bounties <span aria-hidden="true">↗</span></a></p>
+      </div>
+    </section>
+
+    <!-- Framed ~4:3 panel on a full-bleed backdrop (desktop) -->
+    <section class="section" id="for-funders">
+      <div class="panel prose">
+        <h2>For funders</h2>
+        <p>SatsCode is seeking support from the organizations funding Bitcoin's open-source future. The fit is direct: bounties turn grant capital into shipped, reviewed code one approved unit of work at a time — and every payout settles in bitcoin, without touching fiat rails. The platform is live at <a href="https://app.satscode.xyz">app.satscode.xyz</a>.</p>
+        <p class="lead-in">Funding goes toward the work that makes it durable:</p>
+        <!-- Bullets drawn from the implementation roadmap in satcode/docs/triage-escrow.md —
+             adjust as priorities change. -->
+        <ul class="roadmap">
+          <li>An independent security audit of the escrow script, FROST threshold signing, and oracle node software</li>
+          <li>The dispute layer: a staked, randomly selected juror network for human-judged work, and DLC oracles for machine-verifiable bounties</li>
+          <li>Publishing the full protocol as open NIPs, so anyone can run a compatible client, oracle, or juror node</li>
+          <li>Documentation and integration guides for projects posting their first bounty</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn" href="mailto:funding@satscode.xyz">Get in touch</a>
+          <a class="mailto" href="mailto:funding@satscode.xyz">funding@satscode.xyz</a>
         </div>
       </div>
     </section>
 
-    <!-- ============================== ALUEET ============================== -->
-    <section id="alueet" class="section section-alt">
+    <section class="section" id="faq">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Toiminta-alue</span>
-          <h2>Palvelemme Helsingissä ja PK-seudulla</h2>
-          <p class="section-lead">Painopisteenä Oulunkylä, Vuosaari ja Laajasalo lähiympäristöineen – kotikäynnit nopeasti ja vaivattomasti.</p>
+        <h2>FAQ</h2>
+        <div class="faq-list">
+          <details name="faq">
+            <summary>Do I need a Lightning node or wallet already set up?</summary>
+            <div class="faq-body">
+              <p>No. Ark's design means a first-time recipient can receive a payout without any channel or liquidity setup.</p>
+            </div>
+          </details>
+          <details name="faq">
+            <summary>Is SatsCode open source?</summary>
+            <div class="faq-body">
+              <!-- OPEN ITEM: the satcode repo is not public today. Publish it or reword
+                   this answer — do not ship a plain "yes" while the repo 404s. -->
+              <p class="open-item"><span class="open-tag">Open item — confirm before launch</span>
+              Draft answer: the platform code is licensed GPL-3.0, and the roadmap commits to publishing the full protocol as open NIPs so third parties can run compatible clients. The repository is not public yet, so this answer shouldn't ship until it is — or should be reworded to match reality.</p>
+            </div>
+          </details>
+          <details name="faq">
+            <summary>Who holds the funds while a bounty is open?</summary>
+            <div class="faq-body">
+              <!-- Drafted from satcode/docs/triage-escrow.md (implementation plan) —
+                   confirm this matches what is actually live before launch. -->
+              <p>No one — including SatsCode. A funded bounty is a Taproot escrow: a virtual UTXO on Ark with fixed spending paths — cooperative release to the contributor, dispute paths that need a threshold arbiter key plus the winning party, and a reclaim path for the poster if the work is never taken. The Ark server co-signs settlement rounds but can't spend from any path on its own, and either side can always exit to on-chain bitcoin.</p>
+            </div>
+          </details>
+          <details name="faq">
+            <summary>What happens if a submission is disputed?</summary>
+            <div class="faq-body">
+              <!-- Drafted from satcode/docs/triage-escrow.md (implementation plan) —
+                   confirm this matches what is actually live before launch. -->
+              <p>Dispute resolution is built into the escrow itself. Subjective work goes to a randomly selected panel of staked jurors; machine-verifiable work is attested by a threshold of independent DLC oracles. Either way the verdict is a threshold signature — no single party, SatsCode included, can move escrowed funds alone — and every verdict is published as a signed, publicly auditable Nostr event.</p>
+            </div>
+          </details>
         </div>
-
-        <div class="grid areas">
-          <article class="area-card">
-            <div class="area-card-head">
-              <div class="card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-              </div>
-              <h3>Oulunkylä ja Koillis-Helsinki</h3>
-            </div>
-            <ul class="chips">
-              <li>Oulunkylä</li><li>Patola</li><li>Veräjämäki</li><li>Käpylä</li>
-              <li>Pukinmäki</li><li>Malmi</li><li>Tapanila</li><li>Pihlajamäki</li>
-            </ul>
-          </article>
-
-          <article class="area-card">
-            <div class="area-card-head">
-              <div class="card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-              </div>
-              <h3>Vuosaari ja Itä-Helsinki</h3>
-            </div>
-            <ul class="chips">
-              <li>Vuosaari</li><li>Rastila</li><li>Kallahti</li><li>Herttoniemi</li>
-              <li>Roihuvuori</li><li>Myllypuro</li><li>Kontula</li><li>Itäkeskus</li>
-            </ul>
-          </article>
-
-          <article class="area-card">
-            <div class="area-card-head">
-              <div class="card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-              </div>
-              <h3>Laajasalo</h3>
-            </div>
-            <ul class="chips">
-              <li>Yliskylä</li><li>Jollas</li><li>Kruunuvuorenranta</li><li>Herttoniemi</li><li>Roihuvuori</li><li>Itäkeskus</li>
-            </ul>
-          </article>
-        </div>
-
-        <p class="areas-note">Palvelemme myös muuta pääkaupunkiseutua – muut alueet ja lähikunnat sopimuksen mukaan.</p>
       </div>
     </section>
 
-    <!-- =========================== YHTEYSTIEDOT =========================== -->
-    <section id="yhteystiedot" class="section contact">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Yhteystiedot</span>
-          <h2>Ota yhteyttä – autamme mielellämme</h2>
-          <p class="section-lead">Soita tai laita viestiä, niin sovitaan sopiva aika. Kerromme kustannusarvion jo puhelimessa.</p>
-        </div>
-
-        <div class="grid contact-grid">
-          <div class="contact-card">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-            </div>
-            <h3>Puhelin</h3>
-            <!-- PLACEHOLDER: puhelinnumero -->
-            <a class="big" href="tel:+358401234567">040 123 4567</a>
-            <small>Soita arkisin klo 9–18</small>
-          </div>
-
-          <div class="contact-card">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
-            </div>
-            <h3>Sähköposti</h3>
-            <!-- PLACEHOLDER: sähköpostiosoite -->
-            <a class="big" href="mailto:info@it-apu.fi">info@it-apu.fi</a>
-            <small>Vastaamme yleensä saman päivän aikana</small>
-          </div>
-
-          <div class="contact-card">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <polyline points="12 6 12 12 16 14"/>
-              </svg>
-            </div>
-            <h3>Palveluajat</h3>
-            <span class="big">Ma–Pe 9–18</span>
-            <small>La 10–15 sopimuksen mukaan</small>
-          </div>
-
-          <div class="contact-card">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-            </div>
-            <h3>Toiminta-alue</h3>
-            <span class="big">Helsinki ja PK-seutu</span>
-            <small>Oulunkylä, Vuosaari, Laajasalo ja lähialueet</small>
-          </div>
-        </div>
-
-        <div class="contact-actions">
-          <!-- PLACEHOLDER: puhelinnumero -->
-          <a href="tel:+358401234567" class="btn btn-primary btn-lg">Soita 040&nbsp;123&nbsp;4567</a>
-          <!-- PLACEHOLDER: sähköpostiosoite -->
-          <a href="mailto:info@it-apu.fi" class="btn btn-ghost btn-lg">Lähetä sähköpostia</a>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <!-- ============================== FOOTER ============================== -->
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <a href="#koti" class="brand" aria-label="IT-Apu Helsinki">
-            <span class="brand-mark" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-              </svg>
-            </span>
-            <span class="brand-text">Digituki <span>Oy</span></span>
-          </a>
-          <p>Digitukea koteihin ja IT-tukea pienyrityksille – rauhallisesti ja mutkattomasti.</p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Palvelut</h4>
-          <ul>
-            <li><a href="#palvelut">Huolto ja korjaus</a></li>
-            <li><a href="#palvelut">Virusten poisto</a></li>
-            <li><a href="#palvelut">Verkot ja WiFi</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Alueet</h4>
-          <ul>
-            <li><a href="#alueet">Oulunkylä</a></li>
-            <li><a href="#alueet">Vuosaari</a></li>
-            <li><a href="#alueet">Laajasalo</a></li>
-            <li><a href="#alueet">PK-seutu</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Yhteystiedot</h4>
-          <ul>
-            <!-- PLACEHOLDER: puhelin & sähköposti -->
-            <li><a href="tel:+358401234567">040 123 4567</a></li>
-            <li><a href="mailto:info@it-apu.fi">info@it-apu.fi</a></li>
-            <li>Ma–Pe 9–18</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <!-- PLACEHOLDER: Y-tunnus -->
-        <span>© 2026 Digituki Oy · Y-tunnus 1234567-8</span>
-        <span>Hinnat sis. alv. 25,5 %</span>
-      </div>
+    <div class="footer-inner">
+      <a class="wordmark" href="#top">satscode<span aria-hidden="true">.</span></a>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="https://app.satscode.xyz">Launch app <span aria-hidden="true">↗</span></a>
+        <a href="mailto:funding@satscode.xyz">funding@satscode.xyz</a>
+        <!-- OPEN ITEM: uncomment with real URLs/handles before launch
+        <a href="https://github.com/bitcoinbounty">GitHub</a>
+        <a href="#">Docs</a>
+        <a href="#">X</a>
+        <a href="#">Nostr</a>
+        -->
+      </nav>
+      <p class="copyright">© SatsCode</p>
     </div>
   </footer>
 
+  <script src="main.js"></script>
 </body>
 </html>
