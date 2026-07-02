@@ -1,4 +1,4 @@
-// SatsCode homepage — progressive enhancement only.
+// SatCode homepage — progressive enhancement only.
 // Smooth anchor scrolling is CSS (scroll-behavior) and the FAQ accordion is
 // native <details name="faq">; the only JS is the header tint on scroll.
 
